@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-pink: #ff00ff;
+  --color-neon-cyan: #00ffff;
+}
+
+@layer base {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  /* Custom scrollbar for cyberpunk feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f172a; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #06b6d4;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d946ef; 
+  }
+}
+
+@layer utilities {
+  @keyframes text-glitch {
+    0%, 100% { text-shadow: none; transform: translate(0); }
+    20% { text-shadow: 2px 0 var(--color-neon-pink), -2px 0 var(--color-neon-cyan); transform: translate(-2px, 1px); }
+    22% { text-shadow: none; transform: translate(0); }
+    80% { text-shadow: -2px 0 var(--color-neon-pink), 2px 0 var(--color-neon-cyan); transform: translate(2px, -1px); }
+    82% { text-shadow: none; transform: translate(0); }
+  }
+  .glitch-text {
+    animation: text-glitch 3s infinite;
+  }
+}
